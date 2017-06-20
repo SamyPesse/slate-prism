@@ -4,17 +4,15 @@ const Slate = require('slate');
 const PluginEditCode = require('slate-edit-code');
 const PluginPrism = require('../lib/');
 
-const stateJson = require('./state');
-
-const onlyInCode = (node => node.type === 'code_block');
+const Document = require('./document');
 
 const plugins = [
     PluginPrism({
-        onlyIn: onlyInCode,
+        onlyIn: (node => node.type === 'code_block'),
         getSyntax: (node => node.data.get('syntax'))
     }),
     PluginEditCode({
-        onlyIn: onlyInCode
+        onlyIn: (node => node.type === 'code_block')
     })
 ];
 
@@ -41,7 +39,9 @@ const schema = {
 const Example = React.createClass({
     getInitialState: function() {
         return {
-            state: Slate.Raw.deserialize(stateJson, { terse: true })
+            state: Slate.State.create({
+                document: Document
+            })
         };
     },
 
@@ -60,7 +60,7 @@ const Example = React.createClass({
                 onChange={this.onChange}
                 schema={schema}
             />
-    );
+        );
     }
 });
 
