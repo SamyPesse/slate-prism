@@ -33,7 +33,7 @@
   },
   "scripts": {
     "prepublish": "babel ./lib --out-dir ./dist",
-    "lint": "eslint ./",
+    "lint": "eslint ./lib ./example",
     "build-example": "browserify ./example/main.js -o ./example/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "serve-example": "http-server ./example/ -p 8080",
     "start": "npm run build-example; npm run serve-example",
