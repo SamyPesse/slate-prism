@@ -1,10 +1,10 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-const Slate = require('slate');
+const { Editor } = require('slate-react');
 const PluginEditCode = require('slate-edit-code');
 const PluginPrism = require('../lib/');
 
-const Document = require('./document');
+const initialState = require('./state');
 
 const plugins = [
     PluginPrism({
@@ -39,13 +39,11 @@ const schema = {
 const Example = React.createClass({
     getInitialState: function() {
         return {
-            state: Slate.State.create({
-                document: Document
-            })
+            state: initialState
         };
     },
 
-    onChange: function(state) {
+    onChange: function({ state }) {
         this.setState({
             state: state
         });
@@ -53,7 +51,7 @@ const Example = React.createClass({
 
     render: function() {
         return (
-            <Slate.Editor
+            <Editor
                 placeholder={'Enter some text...'}
                 plugins={plugins}
                 state={this.state.state}
