@@ -14,18 +14,20 @@ const h = createHyperscript({
 });
 
 module.exports = (
-    <document>
-        <heading>Slate + Code Edition</heading>
-        <paragraph>This page is a basic example of Slate + slate-prism + slate-edit-code plugins:</paragraph>
-        <codeblock syntax="javascript">
-            <codeline>{'// Some javascript'}</codeline>
-            <codeline>{'var msg = \'Hello world\';'}</codeline>
-        </codeblock>
+    <state>
+        <document>
+            <heading>Slate + Code Edition</heading>
+            <paragraph>This page is a basic example of Slate + slate-prism + slate-edit-code plugins:</paragraph>
+            <codeblock syntax="javascript">
+                <codeline>{'// Some javascript'}</codeline>
+                <codeline>{'var msg = \'Hello world\';'}</codeline>
+            </codeblock>
 
-        <paragraph>Syntax can be set on a per-block basis:</paragraph>
-        <codeblock syntax="html">
-            <codeline>{'<!-- Some HTML -->'}</codeline>
-            <codeline>{'<b>Hello World</b>'}</codeline>
-        </codeblock>
-    </document>
+            <paragraph>Syntax can be set on a per-block basis:</paragraph>
+            <codeblock syntax="html">
+                <codeline>{'<!-- Some HTML -->'}</codeline>
+                <codeline>{'<b>Hello World</b>'}</codeline>
+            </codeblock>
+        </document>
+    </state>
 );
