@@ -24,12 +24,13 @@
     "eslint-plugin-react": "^7.1.0",
     "gh-pages": "^1.0.0",
     "http-server": "^0.10.0",
+    "immutable": "^3.8.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "slate": "^0.24.0",
+    "slate": "^0.26.1",
     "slate-edit-code": "0.11.0",
-    "slate-hyperscript": "^0.1.5",
-    "slate-react": "^0.1.5"
+    "slate-hyperscript": "^0.1.13",
+    "slate-react": "^0.3.3"
   },
   "scripts": {
     "prepublish": "babel ./lib --out-dir ./dist",
