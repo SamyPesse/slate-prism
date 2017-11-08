@@ -1,6 +1,6 @@
 /** @jsx h */
-
-const { createHyperscript } = require('slate-hyperscript');
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { createHyperscript } from 'slate-hyperscript';
 
 const h = createHyperscript({
     blocks: {
@@ -13,21 +13,25 @@ const h = createHyperscript({
     marks: {}
 });
 
-module.exports = (
-    <state>
+export default (
+    <value>
         <document>
-            <heading>Slate + Code Edition</heading>
-            <paragraph>This page is a basic example of Slate + slate-prism + slate-edit-code plugins:</paragraph>
+            <heading>{'Slate + Code Highlighting'}</heading>
+            <paragraph>
+                {
+                    'This page is a basic example of Slate + slate-prism + slate-edit-code plugins:'
+                }
+            </paragraph>
             <codeblock syntax="javascript">
                 <codeline>{'// Some javascript'}</codeline>
-                <codeline>{'var msg = \'Hello world\';'}</codeline>
+                <codeline>{"var msg = 'Hello world';"}</codeline>
             </codeblock>
 
-            <paragraph>Syntax can be set on a per-block basis:</paragraph>
+            <paragraph>{'Syntax can be set on a per-block basis:'}</paragraph>
             <codeblock syntax="html">
                 <codeline>{'<!-- Some HTML -->'}</codeline>
                 <codeline>{'<b>Hello World</b>'}</codeline>
             </codeblock>
         </document>
-    </state>
+    </value>
 );

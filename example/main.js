@@ -1,68 +1,66 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const { Editor } = require('slate-react');
-const PluginEditCode = require('slate-edit-code');
-const PluginPrism = require('../lib/');
+// @flow
+/* global document */
+/* eslint-disable import/no-extraneous-dependencies */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Editor } from 'slate-react';
+import PluginEditCode from 'slate-edit-code';
+import PluginPrism from '../lib/';
 
-const initialState = require('./state');
+import INITIAL_VALUE from './value';
 
 const plugins = [
     PluginPrism({
-        onlyIn: (node => node.type === 'code_block'),
-        getSyntax: (node => node.data.get('syntax'))
+        onlyIn: node => node.type === 'code_block',
+        getSyntax: node => node.data.get('syntax')
     }),
     PluginEditCode({
-        onlyIn: (node => node.type === 'code_block')
+        onlyIn: node => node.type === 'code_block'
     })
 ];
 
-/**
- * Define a schema.
- *
- * @type {Object}
- */
+function renderNode(props: *) {
+    const { node, children, attributes } = props;
+    switch (node.type) {
+        case 'code_block':
+            return (
+                <pre>
+                    <code {...attributes}>{children}</code>
+                </pre>
+            );
 
-const schema = {
-    nodes: {
-        code_block: {
-            render: props => <pre><code {...props.attributes}>{props.children}</code></pre>
-        },
-        paragraph: {
-            render: props => <p {...props.attributes}>{props.children}</p>
-        },
-        heading: {
-            render: props => <h1 {...props.attributes}>{props.children}</h1>
-        }
+        case 'paragraph':
+            return <p {...attributes}>{children}</p>;
+        case 'heading':
+            return <h1 {...attributes}>{children}</h1>;
+        default:
+            return null;
     }
-};
+}
 
-const Example = React.createClass({
-    getInitialState: function() {
-        return {
-            state: initialState
-        };
-    },
+class Example extends React.Component<*, *> {
+    state = {
+        value: INITIAL_VALUE
+    };
 
-    onChange: function({ state }) {
+    onChange = ({ value }) => {
         this.setState({
-            state: state
+            value
         });
-    },
+    };
 
-    render: function() {
+    render() {
         return (
             <Editor
                 placeholder={'Enter some text...'}
                 plugins={plugins}
-                state={this.state.state}
+                state={this.state.value}
                 onChange={this.onChange}
-                schema={schema}
+                renderNode={renderNode}
             />
         );
     }
-});
+}
 
-ReactDOM.render(
-    <Example />,
-    document.getElementById('example')
-);
+// $FlowFixMe
+ReactDOM.render(<Example />, document.getElementById('example'));

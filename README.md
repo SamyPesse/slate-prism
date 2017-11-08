@@ -24,5 +24,5 @@ const plugins = [
 
 #### Arguments
 
-- ``[onlyIn: Function(Node)]`` — a filtering function to select code blocks.
-- ``[getSyntax: Function(Node)]`` — a function to determine syntax for a code block.
+- ``[onlyIn: (Node) => boolean]`` — a filtering function to select code blocks.
+- ``[getSyntax: (Node) => string]`` — a function to determine syntax for a code block.

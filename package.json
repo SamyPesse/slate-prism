@@ -11,6 +11,7 @@
   "peerDependencies": {
     "react": "*",
     "react-dom": "*",
+    "immutable": "*",
     "slate": "^0.29.0"
   },
   "devDependencies": {
