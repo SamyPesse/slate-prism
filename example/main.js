@@ -54,7 +54,7 @@ class Example extends React.Component<*, *> {
             <Editor
                 placeholder={'Enter some text...'}
                 plugins={plugins}
-                state={this.state.value}
+                value={this.state.value}
                 onChange={this.onChange}
                 renderNode={renderNode}
             />

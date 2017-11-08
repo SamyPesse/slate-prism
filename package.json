@@ -40,7 +40,7 @@
   "scripts": {
     "prepublish": "babel ./lib --out-dir ./dist",
     "lint": "eslint ./lib ./example",
-    "build-example": "browserify ./example/main.js -o ./example/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "build-example": "browserify ./example/main.js -o ./example/bundle.js -t [ babelify --presets [ es2015 react stage-0 ] ]",
     "serve-example": "http-server ./example/ -p 8080",
     "start": "npm run build-example; npm run serve-example",
     "deploy-example": "npm run build-example; gh-pages -d ./example"
