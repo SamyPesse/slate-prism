@@ -33,7 +33,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "slate": "^0.32.0",
-    "slate-edit-code": "^0.13.0",
+    "slate-edit-code": "^0.14.0",
     "slate-hyperscript": "^0.4.6",
     "slate-react": "^0.11.4"
   },
