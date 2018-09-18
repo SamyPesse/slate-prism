@@ -3,8 +3,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Editor } from 'slate-react';
-import PluginEditCode from 'slate-edit-code';
+import { Editor } from '@gitbook/slate-react';
+import PluginEditCode from '@gitbook/slate-edit-code';
 import PluginPrism from '../lib/';
 
 import INITIAL_VALUE from './value';

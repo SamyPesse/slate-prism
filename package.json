@@ -33,7 +33,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "@gitbook/slate": "^0.34.7",
-    "@gitbook/slate-edit-code": "0.13.0",
+    "@gitbook/slate-edit-code": "0.15.5",
     "@gitbook/slate-hyperscript": "^0.5.22",
     "@gitbook/slate-react": "^0.13.4"
   },
