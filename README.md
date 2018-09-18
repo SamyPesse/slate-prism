@@ -4,6 +4,11 @@
 
 A Slate plugin to highlight code blocks using PrismJS
 
+> ⚠️  This repository is now using GitBook's fork of [ianstormtaylor/slate](https://github.com/ianstormtaylor/slate).
+> Previous versions are still [available on NPM](https://www.npmjs.com/package/slate-prism)
+> All the versions using GitBook's fork of slate are now published under the `@gitbook` NPM scope.
+> To learn more about why we forked Slate, read [our manifest](https://github.com/GitbookIO/slate/blob/master/Readme.md)
+
 ### Install
 
 ```
